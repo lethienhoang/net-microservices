@@ -1,2 +1,3 @@
-/PlatformService/bin/*.*
-/PlatformService/obj/*.*
+
+PlatformService/bin/
+PlatformService/obj/
