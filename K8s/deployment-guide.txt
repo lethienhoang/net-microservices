@@ -1,0 +1,3 @@
+kubectl apply -f platforms-depl.yaml
+kubectl get deployment // verify that the service is deployed successfully
+kubectl get pods // verify the service is created in pods
