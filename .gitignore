@@ -2,3 +2,7 @@
 PlatformService/bin/
 PlatformService/obj/
 PlatformService/.vs/
+
+CommandsService/bin/
+CommandsService/obj/
+CommandsService/.vs/
