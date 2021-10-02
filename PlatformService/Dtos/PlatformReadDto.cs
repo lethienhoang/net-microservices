@@ -12,5 +12,7 @@ namespace PlatformService.Dtos
         public string Publisher { get; set; }
 
         public string Cost { get; set; }
+
+        public string Command { get; set; }
     }
 }

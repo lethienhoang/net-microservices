@@ -1,0 +1,2 @@
+docker build -t "your repository" .
+docker push "your repository" // deploy docker images to docker hub

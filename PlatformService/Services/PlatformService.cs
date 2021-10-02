@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PlatformService.Dtos;
+using PlatformService.ExternalServices.CommandService;
 using PlatformService.Models;
 using PlatformService.Repositories;
 using System;
@@ -12,10 +13,12 @@ namespace PlatformService.Services
     public class PlatformService : IPlatformService
     {
         private readonly IPlatformRepo _platformRepo;
+        private readonly ICommandHttpClient _commandHttpClient;
         private readonly IMapper _mapper;
-        public PlatformService(IPlatformRepo platformRepo, IMapper mapper)
+        public PlatformService(IPlatformRepo platformRepo, ICommandHttpClient commandHttpClient, IMapper mapper)
         {
             _platformRepo = platformRepo;
+            _commandHttpClient = commandHttpClient;
             _mapper = mapper;
         }
 
@@ -36,6 +39,10 @@ namespace PlatformService.Services
             }
 
             var result = _mapper.Map<PlatformReadDto>(platform);
+
+            // call external service
+            var commandInfor = _commandHttpClient.GetCommandInfoByPlatformId(id).Result;
+            result.Command = commandInfor;
 
             return result;
         }

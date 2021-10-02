@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PlatformService.Db;
+using PlatformService.ExternalServices.CommandService;
 using PlatformService.Repositories;
 using PlatformService.Services;
 
@@ -34,6 +35,8 @@ namespace PlatformService
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
             services.AddScoped<IPlatformRepo, PlatformRepo>();
             services.AddScoped<IPlatformService, PlatformService.Services.PlatformService>();
+            services.AddHttpClient<ICommandHttpClient, CommandHttpClient>();
+            //services.AddTransient<ICommandHttpClient, CommandHttpClient>();
             services.AddControllers();
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
