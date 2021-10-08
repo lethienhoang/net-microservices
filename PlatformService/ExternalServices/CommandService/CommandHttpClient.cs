@@ -16,7 +16,7 @@ namespace PlatformService.ExternalServices.CommandService
 
         public async Task<string> GetCommandInfoByPlatformId(int paltformId)
         {
-            var res = await _httpClient.GetAsync("https://localhost:5002/v1/api/internal/platform/test");
+            var res = await _httpClient.GetAsync("http://commandservice-clusterip-srv:80/v1/api/internal/platform/test");
             if (res.IsSuccessStatusCode)
             {
                 var result = await res.Content.ReadAsStringAsync();

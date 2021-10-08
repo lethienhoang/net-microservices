@@ -3,3 +3,6 @@ kubectl get deployment // verify that the service is deployed successfully
 kubectl get service // verify that the service is deployed successfully
 kubectl delete deployment "name"
 kubectl get pods // verify the service is created in pods
+kubectl rollout restart deployment // restart the deployment and update latest deployment
+kubectl get ingress "name ingress"
+kubectl describe ingress "name ingress",
