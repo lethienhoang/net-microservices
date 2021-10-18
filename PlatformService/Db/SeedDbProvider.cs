@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Models;
 
@@ -18,6 +19,8 @@ namespace PlatformService.Db
 
         private static void SeedData(AppDbContext context)
         {
+            context.Database.Migrate();
+
             if (context.Platforms.Any())
             {
                 Console.WriteLine("We already have data...");

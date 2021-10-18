@@ -8,4 +8,4 @@ kubectl get ingress "name ingress"
 kubectl describe ingress "name ingress",
 kubectl get storageclass // get list of storage in k8s
 kubectl apply -f local-pvc.yaml
-kubectl create secret generic mssql --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd"// create secret key for a sql server in k8s
+kubectl create secret generic mssql1 --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd"// create secret key for a sql server in k8s

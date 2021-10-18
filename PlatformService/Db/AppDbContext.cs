@@ -10,5 +10,10 @@ namespace PlatformService.Db
         }
 
         public DbSet<Platform> Platforms { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           modelBuilder.Entity<Platform>().ToTable("Platforms");
+        }
     }
 }
